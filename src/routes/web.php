@@ -15,10 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/test', function () {
-    return view('booking-system::test');
-});
-
 Route::middleware(['web'])->group(function () {
     Route::get('/bookings/create', CreateBooking::class)->name('bookings');
     Route::get('/bookings/{appointment:uuid}', ShowBooking::class)->name('bookings.show');

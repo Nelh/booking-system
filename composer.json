@@ -3,13 +3,19 @@
     "description": "This will create an online booking scaffolding layout for your laravel application",
     "type": "library",
     "require": {
-        "livewire/livewire": "^2.4",
-        "illuminate/support": "10.x-dev"
+        "livewire/livewire": "^2.4"
     },
     "license": "MIT",
     "autoload": {
         "psr-4": {
             "Nel\\BookingSystem\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Nel\\BookingSystem\\BookingSystemServiceProvider"
+            ]
         }
     },
     "authors": [

@@ -1,0 +1,22 @@
+{
+    "name": "nel/booking-system",
+    "description": "This will create an online booking scaffolding layout for your laravel application",
+    "type": "library",
+    "require": {
+        "livewire/livewire": "^2.4",
+        "illuminate/support": "10.x-dev"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Nel\\BookingSystem\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nel",
+            "email": "nelhamstrong9@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}

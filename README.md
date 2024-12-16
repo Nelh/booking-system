@@ -48,7 +48,7 @@ If you discover any security related issues, please email arthurkenzo04@gmail.co
 
 ## Credits
 
-- [Andrés Santibáñez](https://github.com/nelh)
+- [Nel](https://github.com/nelh)
 - [All Contributors](../../contributors)
 
 ## License

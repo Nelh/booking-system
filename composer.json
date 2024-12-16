@@ -2,6 +2,12 @@
     "name": "nel/booking-system",
     "description": "This will create an online booking scaffolding layout for your laravel application",
     "type": "library",
+    "keywords": [
+        "nel",
+        "booking-system",
+        "online booking"
+    ],
+    "homepage": "https://github.com/nelh/booking-system",
     "require": {
         "livewire/livewire": "^2.4"
     },
@@ -21,7 +27,8 @@
     "authors": [
         {
             "name": "Nel",
-            "email": "nelhamstrong9@gmail.com"
+            "email": "arthurkenzo04@gmail.com",
+            "role": "Developer"
         }
     ],
     "minimum-stability": "dev"

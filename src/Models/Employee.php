@@ -5,11 +5,11 @@ namespace Nel\BookingSystem\Models;
 use Carbon\Carbon;
 use Nel\BookingSystem\Models\Service;
 use Nel\BookingSystem\Models\Schedule;
-use Nel\BookingSystem\Bookings\TimeSlotGenerator;
+use Nel\BookingSystem\Filters\TimeSlotGenerator;
 use Illuminate\Database\Eloquent\Model;
-use Nel\BookingSystem\Bookings\Filters\AppointmentFilter;
-use Nel\BookingSystem\Bookings\Filters\UnavailabilityFilter;
-use Nel\BookingSystem\Bookings\Filters\SlotsPassedTodayFilter;
+use Nel\BookingSystem\Filters\Filters\AppointmentFilter;
+use Nel\BookingSystem\Filters\Filters\UnavailabilityFilter;
+use Nel\BookingSystem\Filters\Filters\SlotsPassedTodayFilter;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Employee extends Model

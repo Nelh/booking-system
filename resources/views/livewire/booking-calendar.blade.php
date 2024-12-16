@@ -19,19 +19,20 @@
         </button>
     </div>
 
-    <div class="flex justify-between items-center px-3 border-b border-gray-200 pb-2">
+    <div class="flex justify-between items-center gap-2 pb-2">
         @foreach ($this->calendarWeekInterval as $day)
-            <button type="button" class="text-center group cusor-pointer focus:outline-none" wire:click="setDate({{ $day->timestamp }})">
+            <button type="button" class="flex-1 flex flex-col flex-nowrap items-center justify-center h-24 border border-slate-500 rounded-xl shadow-sm text-center group cusor-pointer focus:outline-none {{ $date === $day->timestamp ? 'bg-slate-200' : '' }}" wire:click="setDate({{ $day->timestamp }})">
                 <div class="text-xs leading-none mb-2 text-gray-700">
                     {{ $day->format('D') }}
                 </div>
-                <div class="text-lg leading-none p-1 rounded-full w-9 h-9 group-hover:bg-gray-200 flex items-center justify-center {{ $date === $day->timestamp ? 'bg-gray-200' : '' }}">
+                <div class="text-lg leading-none p-1 rounded-full w-9 h-9 group-hover:bg-gray-200 flex items-center justify-center flex-nowrap {{ $date === $day->timestamp ? 'bg-gray-200' : '' }}">
                     {{ $day->format('d') }}
                 </div>
             </button>
         @endforeach
     </div>
 
+    @if(config('booking-system.timeslot-picker') == 'picker-2')
     <div class="max-h-52 overflow-y-auto">
         @if ($this->availableTimeSlots->count())
             @foreach ($this->availableTimeSlots as $slot)
@@ -52,22 +53,27 @@
         @endif
     </div>
 
-    {{-- <div  class="max-h-52 overflow-y-auto">
-        @if ($this->availableTimeSlots->count())
-            <div class="flex flex-wrap">
-                @foreach ($this->availableTimeSlots as $slot)
-                <div class="focus:outline-none px-4 py-2 m-2 cursor-pointer border rounded-lg {{ $slot->timestamp == $time ? 'border-gray-600' : 'border-gray-100' }}">
-                    <input type="radio" name="time" id="time_{{ $slot->timestamp }}" value="{{ $slot->timestamp }}" wire:model="time" class="sr-only">
-                    <label for="time_{{ $slot->timestamp }}" class="cursor-pointer flex items-center">
-                        {{ $slot->format('g:i A') }}
-                    </label>
+    @else
+
+        <div class="max-h-72 overflow-y-auto my-8">
+            @if ($this->availableTimeSlots->count())
+                <div class="text-lg font-semibold">Select a time slot</div>
+                <div class="grid grid-cols-4 gap-2 my-4">
+                    @foreach ($this->availableTimeSlots as $slot)
+                    <div class="focus:outline-none px-4 py-3 text-center cursor-pointer border rounded-lg {{ $slot->timestamp == $time ? 'border-gray-600' : 'border-gray-100' }}">
+                        <input type="radio" name="time" id="time_{{ $slot->timestamp }}" value="{{ $slot->timestamp }}" wire:model="time" class="sr-only">
+                        <label for="time_{{ $slot->timestamp }}" class="cursor-pointer flex items-center flex-nowrap">
+                            {{ $slot->format('g:i A') }}
+                        </label>
+                    </div>
+                @endforeach
                 </div>
-            @endforeach
-            </div>
-        @else
-            <div class="text-center text-gray-700 px-4 py-2">
-                No available slots
-            </div>
-        @endif
-    </div> --}}
+            @else
+                <div class="text-center text-gray-700 px-4 py-2">
+                    No available slots
+                </div>
+            @endif
+        </div>
+
+    @endif
 </div>

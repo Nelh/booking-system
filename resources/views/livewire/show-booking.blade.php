@@ -1,4 +1,4 @@
-<div class="max-w-7xl mx-auto mt-8 bg-white dark:bg-slate-800 overflow-hidden shadow sm:rounded-lg">
+<div class="max-w-xl mx-auto mt-8 ">
     <div class="p-6">
         <div class="inline-block text-gray-700 text-xl mb-2">
             Booking Confirmation

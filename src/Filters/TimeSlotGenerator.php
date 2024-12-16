@@ -1,6 +1,6 @@
 <?php
 
-namespace Nel\BookingSystem\Bookings;
+namespace Nel\BookingSystem\Filters;
 
 use Nel\BookingSystem\Models\Service;
 use Nel\BookingSystem\Models\Schedule;

@@ -1,11 +1,11 @@
 <?php
 
-namespace Nel\BookingSystem\Bookings\Filters;
+namespace Nel\BookingSystem\Filters\Filters;
 
-use Nel\BookingSystem\Bookings\Filter;
+use Nel\BookingSystem\Filters\Filter;
 use Carbon\CarbonPeriod;
 use Illuminate\Support\Collection;
-use Nel\BookingSystem\Bookings\TimeSlotGenerator;
+use Nel\BookingSystem\Filters\TimeSlotGenerator;
 
 class AppointmentFilter implements Filter
 {

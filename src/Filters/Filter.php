@@ -1,9 +1,9 @@
 <?php
 
-namespace Nel\BookingSystem\Bookings;
+namespace Nel\BookingSystem\Filters;
 
 use Carbon\CarbonPeriod;
-use Nel\BookingSystem\Bookings\TimeSlotGenerator;
+use Nel\BookingSystem\Filters\TimeSlotGenerator;
 
 interface Filter
 {

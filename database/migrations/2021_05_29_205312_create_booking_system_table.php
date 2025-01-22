@@ -13,27 +13,27 @@ class CreateBookingSystemTable extends Migration
      */
     public function up()
     {
-        Schema::create('employees', function (Blueprint $table) {
+        Schema::create('booking_employees', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestamps();
         });
 
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('booking_services', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->integer('duration');
             $table->timestamps();
         });
 
-        Schema::create('employee_service', function (Blueprint $table) {
+        Schema::create('booking_employee_service', function (Blueprint $table) {
             $table->id();
             $table->foreignId('employee_id')->constrained()->onDelete('cascade');
             $table->foreignId('service_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
 
-        Schema::create('schedules', function (Blueprint $table) {
+        Schema::create('booking_schedules', function (Blueprint $table) {
             $table->id();
             $table->foreignId('employee_id')->constrained()->onDelete('cascade');
             $table->date('date');
@@ -42,7 +42,7 @@ class CreateBookingSystemTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('schedule_unavailabilities', function (Blueprint $table) {
+        Schema::create('booking_schedule_unavailabilities', function (Blueprint $table) {
             $table->id();
             $table->foreignId('schedule_id')->constrained()->onDelete('cascade');
             $table->time('start_time');
@@ -50,7 +50,7 @@ class CreateBookingSystemTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('appointments', function (Blueprint $table) {
+        Schema::create('booking_appointments', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid');
             $table->string('token');
@@ -61,11 +61,8 @@ class CreateBookingSystemTable extends Migration
             $table->time('end_time');
             $table->string('client_name');
             $table->string('client_email');
-            $table->timestamps();
-        });
-
-        Schema::table('appointments', function (Blueprint $table) {
             $table->timestamp('cancelled_at')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -76,14 +73,11 @@ class CreateBookingSystemTable extends Migration
      */
     public function down()
     {
-        Schema::table('appointments', function (Blueprint $table) {
-            $table->dropColumn('cancelled_at');
-        });
-        Schema::dropIfExists('appointments');
-        Schema::dropIfExists('schedule_unavailabilities');
-        Schema::dropIfExists('schedules');
-        Schema::dropIfExists('employee_service');
-        Schema::dropIfExists('services');
-        Schema::dropIfExists('employees');
+        Schema::dropIfExists('booking_appointments');
+        Schema::dropIfExists('booking_schedule_unavailabilities');
+        Schema::dropIfExists('booking_schedules');
+        Schema::dropIfExists('booking_employee_service');
+        Schema::dropIfExists('booking_services');
+        Schema::dropIfExists('booking_employees');
     }
 }

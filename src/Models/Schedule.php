@@ -10,6 +10,8 @@ class Schedule extends Model
 {
     use HasFactory;
 
+    protected $table = "booking_schedules";
+
     protected $casts = [
         'date' => 'datetime',
         'start_time' => 'datetime',

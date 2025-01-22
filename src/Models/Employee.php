@@ -16,6 +16,8 @@ class Employee extends Model
 {
     use HasFactory;
 
+    protected $table = "booking_employees";
+
     public function availableTimeSlots(Schedule $schedule, Service $service)
     {
         return (new TimeSlotGenerator($schedule, $service))

@@ -11,6 +11,8 @@ class Appointment extends Model
 {
     use HasFactory;
 
+    protected $table = "booking_appointments";
+
     protected $fillable = [
         'date',
         'start_time',

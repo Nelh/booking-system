@@ -1,6 +1,8 @@
 <?php
 
 return [
-    'timeslot-picker' => 'default', // picker-2
-    'employee-picker' => 'default', // picker-2
+    'layout' => [
+        'timeslot-picker' => 'default',
+        'employee-picker' => 'default',
+    ]
 ];

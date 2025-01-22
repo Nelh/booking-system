@@ -9,7 +9,7 @@
     ],
     "homepage": "https://github.com/nelh/booking-system",
     "require": {
-        "livewire/livewire": "^2.4"
+        "livewire/livewire": "*"
     },
     "license": "MIT",
     "autoload": {

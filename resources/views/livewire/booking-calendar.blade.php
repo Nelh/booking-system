@@ -32,7 +32,7 @@
         @endforeach
     </div>
 
-    @if(config('booking-system.timeslot-picker') == 'picker-2')
+    @if(config('booking-system.layout.timeslot-picker') == 'picker-2')
     <div class="max-h-52 overflow-y-auto">
         @if ($this->availableTimeSlots->count())
             @foreach ($this->availableTimeSlots as $slot)
@@ -48,7 +48,7 @@
             @endforeach
         @else
             <div class="text-center text-gray-700 px-4 py-16">
-                No available slots
+                {{ __('No available slots') }}
             </div>
         @endif
     </div>

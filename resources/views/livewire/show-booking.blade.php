@@ -1,12 +1,12 @@
 <div class="max-w-xl mx-auto mt-8 ">
     <div class="p-6">
         <div class="inline-block text-gray-700 text-xl mb-2">
-            Booking Confirmation
+            {{ __('Booking Confirmation') }}
         </div>
 
         <div class="mb-6">
             <div class="text-gray-700 font-bold mb-2">
-                {{ $appointment->client_name }}, thanks for your booking.
+                {{ $appointment->client_name . __(', thanks for your booking.') }}
             </div>
 
             <div class="border-t border-gray-300 py-2">
@@ -32,14 +32,14 @@
                 }"
                 x-on:click="confirmCancellation"
             >
-                Cancel booking
+            {{ __('Cancel booking') }}
             </button>
         @endif
 
         <a href="{{ route('bookings') }}" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent text-slate-600 hover:text-slate-800 focus:outline-none focus:text-slate-800 active:text-slate-800 disabled:opacity-50 disabled:pointer-events-none dark:text-slate-500 dark:hover:text-slate-400 dark:focus:text-slate-400 dark:active:text-slate-400">Book again</a>
 
         @if ($appointment->isCancelled())
-            <p>Your booking has been cancelled.</p>
+            <p>{{ __('Your booking has been cancelled.') }}</p>
         @endif
     </div>
 </div>

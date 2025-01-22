@@ -18,21 +18,17 @@ class BookingSystemServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../resources/views' => resource_path('views/vendor/booking-system'),
-        ]);
-
-        $this->loadRoutesFrom(__DIR__.'/routes/web.php');
-
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-
-        // $this->publishesMigrations([
-        //     __DIR__.'/database/migrations' => database_path('migrations'),
-        // ]);
-
-        $this->mergeConfigFrom(__DIR__.'/../config/booking-system.php', 'booking-system');
+        ], 'booking-system-views');
 
         $this->publishes([
             __DIR__.'/../config/booking-system.php' => config_path('booking-system.php'),
-        ]);
+        ], 'booking-system-config');
+
+        $this->publishes([
+            __DIR__.'/../database/migrations' => database_path('migrations')
+        ], 'booking-system-migrations');
+
+        $this->loadRoutesFrom(__DIR__.'/routes/web.php');
 
         // Register Livewire components
         Livewire::component('booking-calendar', \Nel\BookingSystem\Http\Livewire\BookingCalendar::class);
